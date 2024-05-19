@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Container, Form, Button, Spinner } from 'react-bootstrap';
 import { Navigate } from 'react-router-dom';
 import logout from '../hooks/logout'; // Adjust the import path as needed
-
+import API_BASE_URL from '../config/apiConfig'; // Adjust the path as necessary
 const Profile = () => {
     const [username, setUsername] = useState('');
     const [title, setTitle] = useState('');
@@ -42,7 +42,7 @@ const Profile = () => {
         event.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('http://localhost:4000/auth/addpost', { title, des }, {
+            const response = await axios.post(`${API_BASE_URL}/addpost`, { title, des }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             console.log('post successful:', response.data);
