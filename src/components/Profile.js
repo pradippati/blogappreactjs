@@ -4,6 +4,7 @@ import { Container, Form, Button, Spinner } from 'react-bootstrap';
 import { Navigate } from 'react-router-dom';
 import logout from '../hooks/logout'; // Adjust the import path as needed
 import API_BASE_URL from '../config/apiConfig'; // Adjust the path as necessary
+import List from '../components/List';
 const Profile = () => {
     const [username, setUsername] = useState('');
     const [title, setTitle] = useState('');
@@ -48,6 +49,7 @@ const Profile = () => {
             console.log('post successful:', response.data);
             setSuccess('post created successfully.');
             setError('');
+            
         } catch (err) {
             setError(' failed');
         }
@@ -99,7 +101,8 @@ const Profile = () => {
                     post
                 </Button>
             </Form>
-        </Container>
+            <List />
+        </Container >
     );
 };
 
