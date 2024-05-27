@@ -29,6 +29,8 @@ const Profile = () => {
                 } catch (err) {
                     console.error('Error fetching user data', err);
                     setAuthenticated(false);
+                    //return <Navigate to="/login" />;
+                    localStorage.removeItem('token');
                 } finally {
                     setLoading(false);
                 }
@@ -49,7 +51,7 @@ const Profile = () => {
             console.log('post successful:', response.data);
             setSuccess('post created successfully.');
             setError('');
-            
+
         } catch (err) {
             setError(' failed');
         }
