@@ -84,7 +84,8 @@ const List = () => {
                                 <h5 className="card-title">{post.title}</h5>
                                 <p className="card-text">{post.description}</p>
 
-                                <small className="card-text">{post.created_by}</small>
+                                <small className="card-text">{post.created_by}</small>|
+                                <small className="card-text">{post.category}</small>
                                 <div className="mt-2" onClick={() => toggleLike(post)}>
                                     {post.like_status === 1 ? (
                                         <AiFillHeart style={{ color: 'red', cursor: 'pointer' }} />
